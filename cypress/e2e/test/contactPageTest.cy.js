@@ -1,14 +1,18 @@
-import contactPage from "../pages/contactUs";
-
+import contactPage from "../pagesObjects/contactUs";
+import homePage from "../pagesObjects/homePage";
 describe('Write to Us Test Suite', () => {
-    it('login', () => {
-        const cont = new contactPage();
-        cont.visitContact();
-        cont.fullName("rock");
-        cont.email("rockstarkapoor100@gmail.com");
-        cont.mobile("1234556677");
-        // cont.solution();
-        cont.message("Hello TFT, I want website for my company");
-        cont.submit();
+    let userData;
+    before(() => {
+        cy.visit("/");
+        homePage.navBarContactUs();
+        cy.fixture('testData').then((data) => {
+            userData = data;
+        });
+    });
+    it('verify ContactUs form', () => {
+       contactPage.contactForm(userData.name,userData.email,userData.mobNo,userData.message);
+     
+
+
     })
 })

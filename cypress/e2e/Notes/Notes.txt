@@ -1,0 +1,11 @@
+//________hover_________
+Cypress does not have a cy.hover() command.
+you can use .trigger(), .invoke() or cy.wrap() to show the element before you perform the action.
+
+
+
+Page objects have two main benefits:
+
+They keep all page element selectors in one place
+They standardize how tests interact with the page
+https://www.cypress.io/blog/2019/01/03/stop-using-page-objects-and-start-using-app-actions/
